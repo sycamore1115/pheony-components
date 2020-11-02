@@ -4,7 +4,11 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [
-
+  {
+    name:'timeSelect',
+    path:'/timeSelect',
+    component:()=>import('../views/timeSelectDemo')
+  }
 ]
 
 const router = new VueRouter({
