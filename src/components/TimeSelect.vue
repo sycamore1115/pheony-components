@@ -25,7 +25,7 @@
 export default {
   name:'timeSelect',
   props: [
-    'date','startTime','endTime'
+    'date','startTime','endTime','checkedTime'
   ],
   data(){
     return{
@@ -52,7 +52,13 @@ export default {
     saveTime(){
       this.dialogTableVisible = false
       let dateFormat = this.$moment(this.myDate).format('YYYY-MM-DD')
-      this.myFullTime = dateFormat+" "+this.myStartTime+"~"+this.myEndTime
+      if(this.checkedTime){
+        this.myStartTime =this.checkedTime.startTime
+        this.myEndTime = this.checkedTime.endTime
+        this.myFullTime = dateFormat+" "+this.myStartTime+'~'+this.myEndTime
+      }else{
+        this.myFullTime = dateFormat+" "+this.myStartTime+"~"+this.myEndTime
+      }
       this.$emit('savetime',dateFormat,this.myStartTime,this.myEndTime)
     }
   }
@@ -77,7 +83,7 @@ export default {
     margin-bottom: 10px;
   }
   .is-selected {
-    color: #1989FA;
+    color: teal;
   }
 }
 </style>

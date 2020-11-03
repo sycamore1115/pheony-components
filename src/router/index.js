@@ -8,6 +8,11 @@ const routes = [
     name:'timeSelect',
     path:'/timeSelect',
     component:()=>import('../views/timeSelectDemo')
+  },
+  {
+    name:'colorDot',
+    path:'/colorDot',
+    component:()=>import('../views/colorDotDemo')
   }
 ]
 
