@@ -1,18 +1,23 @@
 <template>
   <div class="timeSelectDemo">
-    标签一：
-    <TimeSelect :date='time.date' :startTime='time.startTime' :endTime='time.endTime' @savetime='saveTime(arguments)'>
-      <el-time-select style="width: 160px" v-model="time.startTime" placeholder="开始时间" value-format="HH:mm:ss"></el-time-select>
-      <el-time-select style="width: 160px" v-model="time.endTime" placeholder="结束时间" value-format="HH:mm:ss"></el-time-select>
-    </TimeSelect>
-    标签二：
-    <TimeSelect :date='time.date' :startTime='time.startTime' :endTime='time.endTime' @savetime='saveTime(arguments)' :checkedTime='checkedTime'>
-      <el-radio-group v-model="checkedTime" class="radioTime">
-        <el-radio v-for="(item, index) in timeIntervals" :key="index" :label="item" style="width: 155px" class="singleTime">
+    <div class="demo">
+      <span>标签一：</span>
+      <TimeSelect :date='time.date' :startTime='time.startTime' :endTime='time.endTime' @savetime='saveTime(arguments)'>
+        <el-time-select style="width: 160px" v-model="time.startTime" placeholder="开始时间" value-format="HH:mm:ss"></el-time-select>
+        <el-time-select style="width: 160px" v-model="time.endTime" placeholder="结束时间" value-format="HH:mm:ss"></el-time-select>
+      </TimeSelect>
+    </div>
+
+    <div class="demo">
+      <span>标签二：</span>
+      <TimeSelect :date='time.date' :startTime='time.startTime' :endTime='time.endTime' @savetime='saveTime(arguments)' :checkedTime='checkedTime'>
+        <el-radio-group v-model="checkedTime" class="radioTime">
+          <el-radio v-for="(item, index) in timeIntervals" :key="index" :label="item" style="width: 155px" class="singleTime">
             {{ item.startTime+'~'+item.endTime}}
-        </el-radio>
-      </el-radio-group>
-    </TimeSelect>
+          </el-radio>
+        </el-radio-group>
+      </TimeSelect>
+    </div>
   </div>
 </template>
 
@@ -44,6 +49,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.demo{
+  margin: 20px;
+}
   .radioTime{
     margin: 0 10px 0 20px;
   }
